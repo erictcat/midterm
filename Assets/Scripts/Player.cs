@@ -85,6 +85,15 @@ public class Player : MonoBehaviour
 
 
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Coin")
+        {
+            other.gameObject.SetActive(false);
+            Destroy(other.gameObject);
+            GameObject[] objs = GameObject.FindGameObjectsWithTag("Coin");
+        }
+    }
 
     void Fire()
     {
